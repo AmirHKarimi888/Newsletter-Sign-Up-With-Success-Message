@@ -1,0 +1,187 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(../../../assets/fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../../../assets/fonts/Roboto-Regular.ttf);
+}
+body {
+  font-family: Roboto-Regular, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: hsl(234, 29%, 20%);
+  font-weight: 400;
+}
+@media (min-width: 376px) {
+  body {
+    background: hsl(235, 18%, 26%);
+  }
+}
+
+@media (min-width: 376px) {
+  #app {
+    width: 100%;
+    height: 100vh;
+    background: hsl(235, 18%, 26%);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.start {
+  background: hsl(0, 0%, 100%);
+}
+@media (max-width: 375px) {
+  .start {
+    border-radius: 1rem;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1, 1fr;
+  }
+  .start .start-cover {
+    order: 1;
+    justify-self: center;
+  }
+  .start .start-cover img {
+    width: 100%;
+  }
+  .start .sub-form {
+    order: 2;
+    padding: 2rem;
+    height: 50vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .start .sub-form h1 {
+    font-family: Roboto-Bold;
+    font-weight: 700;
+  }
+  .start .sub-form p {
+    display: inline-block;
+    font-size: 0.9rem;
+  }
+  .start .sub-form ul {
+    list-style: circle url(../../../assets/images/icon-list.svg) inside;
+    line-height: 1.5rem;
+    font-size: 0.93rem;
+  }
+  .start .sub-form ul li {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .start .sub-form ul li img {
+    width: 1.125rem;
+  }
+  .start .sub-form form .form-content .form-content-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+  }
+  .start .sub-form form .form-content .form-content-inner .form-submit-error {
+    justify-self: end;
+    color: hsl(4, 100%, 67%);
+  }
+  .start .sub-form form .form-content #formInput {
+    margin-top: 0.4rem;
+    width: 90%;
+    padding: 0.8rem;
+    border: 1px solid hsl(231, 7%, 60%);
+    color: hsl(231, 7%, 60%);
+    border-radius: 0.3rem;
+  }
+  .start .sub-form form #formSubmitBtn {
+    margin-top: 0.9rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.3rem;
+    border: 0px;
+    background: hsl(234, 29%, 20%);
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+  }
+}
+@media (min-width: 376px) {
+  .start {
+    width: 36rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    grid-template-columns: 2, 1fr;
+    gap: 1rem;
+  }
+  .start .sub-form {
+    width: 50%;
+    padding: 2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .start .sub-form h1 {
+    font-family: Roboto-Bold;
+    font-weight: 700;
+  }
+  .start .sub-form p {
+    display: inline-block;
+    font-size: 0.66rem;
+  }
+  .start .sub-form ul {
+    list-style: circle url(../../../assets/images/icon-list.svg) inside;
+    line-height: 1.5rem;
+    font-size: 0.66rem;
+  }
+  .start .sub-form ul li {
+    display: inline-flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .start .sub-form ul li img {
+    width: 18px;
+  }
+  .start .sub-form form .form-content .form-content-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.6rem;
+    font-weight: 700;
+  }
+  .start .sub-form form .form-content .form-content-inner .form-submit-error {
+    justify-self: end;
+    color: hsl(4, 100%, 67%);
+  }
+  .start .sub-form form .form-content #formInput {
+    margin-top: 0.4rem;
+    width: 90%;
+    padding: 0.8rem;
+    border: 1px solid hsl(231, 7%, 60%);
+    color: hsl(231, 7%, 60%);
+    border-radius: 0.3rem;
+  }
+  .start .sub-form form #formSubmitBtn {
+    margin-top: 0.9rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.3rem;
+    border: 0px;
+    background: hsl(234, 29%, 20%);
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+  }
+  .start .start-cover {
+    width: 50%;
+  }
+  .start .start-cover img {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
