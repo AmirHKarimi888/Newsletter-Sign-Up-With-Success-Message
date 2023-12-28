@@ -1,3 +1,4 @@
+import { state } from "../model.js";
 import SubscriptionView from "./SubscriptionView.js";
 
 class EndView {
@@ -8,9 +9,11 @@ class EndView {
     }
 
     eventHandler() {
+
         const dismissMessageBtnEl = document.querySelector("#dismissMessageBtn");
 
         dismissMessageBtnEl?.addEventListener("click", () => {
+            state.isError = true;
             SubscriptionView.render();
         })
     }

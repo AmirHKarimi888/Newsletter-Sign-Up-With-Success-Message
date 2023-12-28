@@ -36,6 +36,28 @@ class StartView {
             if (!state.isError) {
                 SuccessView.render(formInputEl?.value);
             }
+            if (state.isError) {
+                formInputEl?.classList.add("form-input-error");
+                formInputEl?.classList.remove("form-input");
+                submitFormErrorEl.innerHTML = "Valid email required";
+            }
+            else {
+                formInputEl?.classList.add("form-input");
+                formInputEl?.classList.remove("form-input-error");
+                submitFormErrorEl.innerHTML = "";
+            }
+        });
+        formInputEl?.addEventListener("click", () => {
+            if (state.isError) {
+                formInputEl?.classList.add("form-input-error");
+                formInputEl?.classList.remove("form-input");
+                submitFormErrorEl.innerHTML = "Valid email required";
+            }
+            else {
+                formInputEl?.classList.add("form-input");
+                formInputEl?.classList.remove("form-input-error");
+                submitFormErrorEl.innerHTML = "";
+            }
         });
         formInputEl?.addEventListener("change", () => {
             if (!validateEmail(formInputEl?.value)) {
