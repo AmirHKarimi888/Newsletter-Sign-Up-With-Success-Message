@@ -1,4 +1,5 @@
 import { state } from "../model.js";
+import SuccessView from "./SuccessView.js";
 class StartView {
     app;
     constructor() {
@@ -7,17 +8,17 @@ class StartView {
     eventHandler() {
         const coverImgEl = document.querySelector(".cover-image");
         if (coverImgEl) {
-            if (window.innerWidth <= 435) {
+            if (window.innerWidth <= 665) {
                 coverImgEl.src = "./assets/images/illustration-sign-up-mobile.svg";
             }
-            else if (window.innerWidth >= 435) {
+            else if (window.innerWidth >= 666) {
                 coverImgEl.src = "./assets/images/illustration-sign-up-desktop.svg";
             }
             window.addEventListener("resize", () => {
-                if (window.innerWidth <= 435) {
+                if (window.innerWidth <= 665) {
                     coverImgEl.src = "./assets/images/illustration-sign-up-mobile.svg";
                 }
-                else if (window.innerWidth >= 435) {
+                else if (window.innerWidth >= 666) {
                     coverImgEl.src = "./assets/images/illustration-sign-up-desktop.svg";
                 }
             });
@@ -32,6 +33,9 @@ class StartView {
         const submitFormErrorEl = document.querySelector("#formSubmitError");
         subFormEl?.addEventListener("submit", event => {
             event.preventDefault();
+            if (!state.isError) {
+                SuccessView.render(formInputEl?.value);
+            }
         });
         formInputEl?.addEventListener("change", () => {
             if (!validateEmail(formInputEl?.value)) {
@@ -54,7 +58,7 @@ class StartView {
     }
     render() {
         const markup = /*html*/ `
-        <div class="start">
+        <div class="subscription">
         <div class="sub-form">
             <h1>Stay updated!</h1>
             <p>Join 60,000+ product managers receiving monthly updates on:</p>
@@ -77,7 +81,7 @@ class StartView {
             </form>
         </div>
     
-        <div class="start-cover">
+        <div class="subscription-cover">
           <img class="cover-image" src="./assets/images/illustration-sign-up-desktop.svg" alt="">
         </div>
     </div>

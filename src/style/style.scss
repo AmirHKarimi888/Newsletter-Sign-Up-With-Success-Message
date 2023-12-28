@@ -5,11 +5,11 @@
 
 @font-face {
     font-family: Roboto-Bold;
-    src: url(../../../assets/fonts/Roboto-Bold.ttf);
+    src: url(../../assets/fonts/Roboto-Bold.ttf);
 }
 @font-face {
     font-family: Roboto-Regular;
-    src: url(../../../assets/fonts/Roboto-Regular.ttf);
+    src: url(../../assets/fonts/Roboto-Regular.ttf);
 }
 
 body {
@@ -18,22 +18,26 @@ body {
     color: hsl(234, 29%, 20%);
     font-weight: 400;
 
-    @media(max-width: 375px) {
+    @media(max-width: 665px) {
 
     }
 
-    @media(min-width: 376px) {
+    @media(min-width: 666px) {
         background: hsl(235, 18%, 26%);
     }
 }
 
 #app {
 
-    @media(max-width: 375px) {
-
+    @media(max-width: 665px) {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
     }
 
-    @media(min-width: 376px) {
+    @media(min-width: 666px) {
         width: 100%;
         height: 100vh;
         background: hsl(235, 18%, 26%);
@@ -43,185 +47,38 @@ body {
     }
 }
 
-.start {
-    background: hsl(0, 0%, 100%);
-
-    @media(max-width: 375px) {
-        border-radius: 1rem;
-        width: 100%;
-        height: 100vh;
-        display: grid;
-        grid-template-columns: (1, 1fr);
 
 
-        .start-cover {
-            order: 1;
-            justify-self: center;
-            img {
-                width: 100%;
-            }
-        }
 
-        .sub-form {
-            order: 2;
-            padding: 2rem;
-            height: 50vh;
-            display: grid;
-            justify-content: center;
-            align-items: center;
 
-            h1 {
-                font-family: Roboto-Bold;
-                font-weight: 700;
-            }
+.form-submit-error {
+    justify-self: end;
+    color: hsl(4, 100%, 67%);
+}
 
-            p {
-                display: inline-block;
-                font-size: 0.9rem;
-            }
+.form-input-error {
+    margin-top: 0.4rem;
+    width: 90%;
+    padding: 0.8rem;
+    border: 1px solid hsl(4, 100%, 67%);;
+    color: hsl(231, 7%, 60%);
+    border-radius: 0.3rem;
+    background: hsl(4, 88%, 90%);
+}
 
-            ul {
-                list-style: circle url(../../../assets/images/icon-list.svg) inside;
-                line-height: 1.5rem;
-                font-size: 0.93rem;
 
-                li {
-                    display: flex;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 0.5rem;
-                    img {
-                        width: 1.125rem;
-                    }
-                }
-            }
+@keyframes animateBg {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 0%; }
+}
 
-            form {
-                .form-content {
-                    .form-content-inner {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        font-size: 0.9rem;
-                        font-weight: 700;
-                        margin-top: 1.5rem;
 
-                        .form-submit-error {
-                            justify-self: end;
-                            color: hsl(4, 100%, 67%);
-                        }
-                    }
-
-                    #formInput {
-                        margin-top: 0.4rem;
-                        width: 90%;
-                        padding: 0.8rem;
-                        border: 1px solid hsl(231, 7%, 60%);
-                        color: hsl(231, 7%, 60%);
-                        border-radius: 0.3rem;
-                    }
-                }
-
-                #formSubmitBtn {
-                    margin-top: 0.9rem;
-                    width: 100%;
-                    padding: 0.8rem;
-                    border-radius: 0.3rem;
-                    border: 0px;
-                    background: hsl(234, 29%, 20%);
-                    color: hsl(0, 0%, 100%);
-                    cursor: pointer;
-                }
-            }
-        }
+@keyframes fadeIn {
+    0% {
+        transform: scaleX(0.2) scaleY(0.2);
     }
 
-    
-
-
-
-
-    @media(min-width: 376px) {
-        width: 36rem;
-        padding: 1rem;
-        border-radius: 1rem;
-        display: flex;
-        grid-template-columns: (2, 1fr);
-        gap: 1rem;
-
-
-        .sub-form {
-            width: 50%;
-            padding: 2rem;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-
-            h1 {
-                font-family: Roboto-Bold;
-                font-weight: 700;
-            }
-
-            p {
-                display: inline-block;
-                font-size: 0.66rem;
-            }
-
-            ul {
-                list-style: circle url(../../../assets/images/icon-list.svg) inside;
-                line-height: 1.5rem;
-                font-size: 0.66rem;
-
-                li {
-                    display: inline-flex;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 0.5rem;
-                    img {
-                        width: 18px;
-                    }
-                }
-            }
-
-            form {
-                .form-content {
-                    .form-content-inner {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        font-size: 0.6rem;
-                        font-weight: 700;
-
-                        .form-submit-error {
-                            justify-self: end;
-                            color: hsl(4, 100%, 67%);
-                        }
-                    }
-
-                    #formInput {
-                        margin-top: 0.4rem;
-                        width: 90%;
-                        padding: 0.8rem;
-                        border: 1px solid hsl(231, 7%, 60%);
-                        color: hsl(231, 7%, 60%);
-                        border-radius: 0.3rem;
-                    }
-                }
-
-                #formSubmitBtn {
-                    margin-top: 0.9rem;
-                    width: 100%;
-                    padding: 0.8rem;
-                    border-radius: 0.3rem;
-                    border: 0px;
-                    background: hsl(234, 29%, 20%);
-                    color: hsl(0, 0%, 100%);
-                    cursor: pointer;
-                }
-            }
-        }
-    
-        .start-cover {
-            width: 50%;
-            img {
-                width: 100%;
-            }
-        }
+    100% {
+        transform: scaleX(1) scaleY(1);
     }
 }

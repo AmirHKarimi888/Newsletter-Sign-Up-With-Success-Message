@@ -1,60 +1,77 @@
 import { state } from "../model.js";
+import SuccessView from "./SuccessView.js";
+
 class StartView {
     app;
+
     constructor() {
-        this.app = document.querySelector("#app");
+        this.app = document.querySelector("#app") as HTMLElement;
     }
+
     eventHandler() {
-        const coverImgEl = document.querySelector(".cover-image");
-        if (coverImgEl) {
-            if (window.innerWidth <= 435) {
+        const coverImgEl = document.querySelector(".cover-image") as HTMLImageElement;
+
+        if(coverImgEl) {
+            if (window.innerWidth <= 665) {
                 coverImgEl.src = "./assets/images/illustration-sign-up-mobile.svg";
-            }
-            else if (window.innerWidth >= 435) {
+            } else if (window.innerWidth >= 666) {
                 coverImgEl.src = "./assets/images/illustration-sign-up-desktop.svg";
             }
+    
             window.addEventListener("resize", () => {
-                if (window.innerWidth <= 435) {
+    
+                if (window.innerWidth <= 665) {
                     coverImgEl.src = "./assets/images/illustration-sign-up-mobile.svg";
-                }
-                else if (window.innerWidth >= 435) {
+    
+                } else if (window.innerWidth >= 666) {
                     coverImgEl.src = "./assets/images/illustration-sign-up-desktop.svg";
                 }
-            });
+            })
         }
-        const validateEmail = (email) => {
+
+
+        const validateEmail = (email: string) => {
             return String(email)
-                .toLowerCase()
-                .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        };
-        const subFormEl = document.querySelector(".sub-form");
-        const formInputEl = document.querySelector("#formInput");
-        const submitFormErrorEl = document.querySelector("#formSubmitError");
+            .toLowerCase()
+            .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        }
+
+        const subFormEl = document.querySelector(".sub-form") as HTMLFormElement;
+        const formInputEl = document.querySelector("#formInput") as HTMLInputElement;
+        const submitFormErrorEl = document.querySelector("#formSubmitError") as HTMLParagraphElement;
+
         subFormEl?.addEventListener("submit", event => {
             event.preventDefault();
-        });
-        formInputEl?.addEventListener("change", () => {
-            if (!validateEmail(formInputEl?.value)) {
-                state.isError = true;
+
+            if(!state.isError) {
+                SuccessView.render(formInputEl?.value);
             }
-            else {
+        });
+
+        formInputEl?.addEventListener("change", () => {
+            
+            if(!validateEmail(formInputEl?.value)) {
+                state.isError = true;
+            } else {
                 state.isError = false;
             }
-            if (state.isError) {
+
+            if(state.isError) {
                 formInputEl?.classList.add("form-input-error");
                 formInputEl?.classList.remove("form-input");
                 submitFormErrorEl.innerHTML = "Valid email required";
-            }
-            else {
+            } else {
                 formInputEl?.classList.add("form-input");
                 formInputEl?.classList.remove("form-input-error");
                 submitFormErrorEl.innerHTML = "";
             }
-        });
+        })
     }
+
     render() {
-        const markup = /*html*/ `
-        <div class="start">
+
+        const markup = /*html*/`
+        <div class="subscription">
         <div class="sub-form">
             <h1>Stay updated!</h1>
             <p>Join 60,000+ product managers receiving monthly updates on:</p>
@@ -77,14 +94,19 @@ class StartView {
             </form>
         </div>
     
-        <div class="start-cover">
+        <div class="subscription-cover">
           <img class="cover-image" src="./assets/images/illustration-sign-up-desktop.svg" alt="">
         </div>
     </div>
-        `;
+        `
+
         this.app.innerHTML = "";
         this.app.insertAdjacentHTML("afterbegin", markup);
         this.eventHandler();
     }
+
+
+
 }
+
 export default new StartView();

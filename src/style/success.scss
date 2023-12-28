@@ -1,0 +1,97 @@
+.success {
+    background: hsl(0, 0%, 100%);
+    animation: fadeIn 0.6s ease-in;
+
+    @media(max-width: 665px) {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+
+
+        .success-content {
+            padding: 2.5rem;
+            h1 {
+                font-weight: 700;
+                margin-top: 2rem;
+            }
+    
+            p {
+                margin-top: 2rem;
+                font-weight: 400;
+                font-size: 0.75rem;
+                line-height: 1rem;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    
+        
+        #dismissMessageBtn {
+            margin: 0 auto;
+            width: 85%;
+            padding: 0.8rem;
+            border-radius: 0.3rem;
+            border: 0px;
+            background: hsl(234, 29%, 20%);
+            color: hsl(0, 0%, 100%);
+            cursor: pointer;
+        }
+    
+        #dismissMessageBtn:hover {
+            background-size: 300% 100%;
+            animation: animateBg 1s linear infinite;
+            background-image: linear-gradient(90deg,#ff8000,#db5779,#ff8000,#db5779);
+        }
+    }
+
+
+
+    @media(min-width: 666px) {
+        border-radius: 1rem;
+        width: 300px;
+        padding: 2rem;
+
+
+        .success-content {
+        
+            h1 {
+                font-weight: 700;
+                margin-top: 1rem;
+            }
+    
+            p {
+                margin-top: 1rem;
+                font-weight: 400;
+                font-size: 0.75rem;
+                line-height: 1rem;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    
+        
+        #dismissMessageBtn {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 0.3rem;
+            border: 0px;
+            background: hsl(234, 29%, 20%);
+            color: hsl(0, 0%, 100%);
+            cursor: pointer;
+        }
+    
+        #dismissMessageBtn:hover {
+            background-size: 300% 100%;
+            animation: animateBg 1s linear infinite;
+            background-image: linear-gradient(90deg,#ff8000,#db5779,#ff8000,#db5779);
+        }
+    }
+
+}
